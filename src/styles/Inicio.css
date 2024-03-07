@@ -1,0 +1,164 @@
+/* Estilos generales */
+.inicio-container {
+  padding-top: 65px;
+  background-color: #ecf9ff;
+}
+/* estilos carousel */
+.carousel {
+  width: 100%;
+  padding: 0;
+  background-color: #333;
+}
+.carousel-inner {
+  border-radius: 10px;
+  overflow: hidden;
+  border: solid;
+}
+
+.description-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 12px rgb(0, 0, 0.1);
+  z-index: 1;
+  background-color: #f3e5ab;
+}
+
+.categories-section {
+  padding: 10px;
+  background-color: #f5f5f5;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.categories h2 {
+  font-size: 40px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.categories p {
+  font-size: 30px;
+  color: #777;
+  margin: 0;
+}
+
+/* Agregar un espacio alrededor de la sección */
+.categories-section {
+  margin: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre las cartas */
+}
+.card{
+  width: 340px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);;
+}
+.card h3 {
+  font-size: 24px;
+  margin: 0;
+  color: #050505;
+}
+
+.card p {
+  font-size: 16px;
+  color: #777;
+  flex: 1; /* Hace que el texto ocupe todo el espacio vertical restante */
+}
+
+
+
+.category-cards {
+  margin: 0 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 10px;
+}
+
+.category-card {
+  border: #ffffff;
+  margin: 15px 0px;
+  font-family: sans-serif;
+  text-align: center;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF; /* Color normal del botón */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  position: relative;
+  justify-content: end;
+  transition: transform 0.2s ease; /* Agregamos una animación de transformación */
+
+  /* Definimos la transición de color */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Color del botón al pasar el mouse */
+  transform: scale(1.05); /* Escalamos el botón al pasar el mouse sobre él */
+}
+/* Estilos para pantallas pequeñas (max-width: 768px) */
+@media (max-width: 768px) {
+  .carousel-section p {
+    font-size: 140px;
+  }
+  .description {
+    width: 100%;
+  }
+
+  .description-container img.image {
+    width: 100%;
+  }
+  .description-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .categories-section {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+/* Estilos para pantallas grandes (min-width: 769px) */
+@media (min-width: 769px) {
+  .description {
+    width: 50%;
+  }
+
+  .description-container img.image {
+    width: 50%;
+  }
+  .carousel-section p {
+    font-size: 20px;
+  }
+  .lugares-title h1 {
+    font-size: 30px;
+  }
+  .categories-section {
+    font-size: 20px;
+  }
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: solid #333;
+}

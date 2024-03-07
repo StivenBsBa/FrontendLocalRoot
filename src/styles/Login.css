@@ -1,0 +1,81 @@
+.emcabezadoAzul {
+  background-color: #0074e4;
+  padding: 10px 0;
+  border-radius: 0 0 100% 100%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.ImagenLogo {
+  height: 80px;
+  width: auto;
+  border-radius: 100%;
+}
+
+.button {
+  height: 40px;
+  width: 200px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #252525;
+  overflow: hidden;
+  border-radius: 30px;
+  color: #333;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-txt {
+  z-index: 1;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.type1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: #0d6efd;
+  border-radius: 30px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+}
+
+.button:hover {
+  box-shadow: 1px 1px 200px #252525;
+  color: #fff;
+  border: none;
+}
+
+.type1:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+
+.descripcion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: #8a8a8a;
+}
+
+.descripcion p {
+  font-size: 15px;
+  margin: 10px;
+}
+.tab-content {
+  border-radius: 20px;
+}
+.tamañoform {
+  background-color: #57d8bc;
+}
+
+.tamaño {
+  height: 70vh;
+}

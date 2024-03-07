@@ -1,0 +1,43 @@
+
+
+/* Estilo para el enlace de navegación */
+.navLink {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none; /* Para quitar el subrayado predeterminado de los enlaces */
+}
+.color {
+  background: #4d4ddf !important;
+}
+/* Estilo para la línea azul cuando el mouse pasa sobre el enlace de navegación */
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4d4ddf;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Estilo para la línea azul cuando el mouse pasa sobre el enlace de navegación */
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+.Logo img {
+  border-radius: 100%;
+  width: 50px;
+  cursor: pointer;
+
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

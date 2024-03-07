@@ -1,0 +1,32 @@
+.infoGeneral {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.infoGeneral img {
+  padding: 10px;
+  width: 40%;
+  height: auto;
+}
+
+
+.informacion {
+  background-color: #b2bec7;
+  padding: 20px 30px;
+  width: 50%;
+  height: auto;
+  display: flex;
+  grid-gap: 50px;
+}
+.horario,
+.datos {
+  width: 50%;
+  height: auto;
+  word-wrap: break-word;
+}
+.descrip {
+  padding: 20px 100px;
+}
+

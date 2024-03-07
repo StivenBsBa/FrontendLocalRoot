@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+  localroot:
+    container_name: localRoot-frontend
+    build:
+      context: ./
+    ports:
+      - 3273:3273

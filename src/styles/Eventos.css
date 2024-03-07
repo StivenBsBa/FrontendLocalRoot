@@ -1,0 +1,100 @@
+.contGeneral {
+  padding-top: 80px;
+  background-color: #ecf9ff;
+}
+.Contenedor{
+  margin: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.hacer {
+  margin-top: 20px;
+  width: calc(80% - 10px);
+  text-align: center;
+}
+
+/* Estilos para los eventos */
+.eventos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.evento {
+  width: 90%;
+  margin-bottom: 20px;
+  border: 1px solid #a09b9b;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Incluye el borde y el relleno en el ancho total */
+  cursor: pointer;
+  background-color: #ffff;
+}
+
+.evento h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.info h4 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.fecha {
+  display: flex;
+}
+
+.evento:hover {
+  transform: scale(1.02);
+}
+
+.contener {
+  max-height: 3em; /* Aproximadamente 4 líneas de texto */
+  overflow: hidden; /* Oculta el contenido que excede la altura máxima */
+  position: relative; /* Importante para mostrar el botón "Ver más" */
+}
+
+.contener::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent, white 60%); /* Efecto de fundido hacia abajo */
+  pointer-events: none; /* Permite hacer clic a través del pseudo-elemento */
+}
+
+
+/* Estilos para pantallas pequeñas (máximo 768px) */
+@media (max-width: 768px) {
+  .evento-info {
+    display: block;
+    flex: 1; /* Permitir que la información ocupe el espacio disponible */
+  }
+
+  .evento img {
+    width: 100%;
+  }
+}
+
+/* Estilos para pantallas grandes (mínimo 769px) */
+@media (min-width: 769px) {
+  .evento-info {
+    display: flex;
+    flex: 1; /* Permitir que la información ocupe el espacio disponible */
+  }
+
+  .evento img {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    width: 100%;
+    height: 200px;
+    border: 4px solid rgb(0, 0, 0,0.2);
+  }
+}

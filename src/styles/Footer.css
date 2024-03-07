@@ -1,0 +1,53 @@
+
+
+@media (max-width: 768px) {
+  .cardFooter {
+    display:flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    background-color: #060640;
+    padding: 40px 0px;
+  }
+
+  .logo img {
+    width: 30px;
+    height: auto;
+    margin: 10px;
+    align-items: center;
+    border-radius: 100%;
+  }
+  .LivingRoots {
+    color: #ffffff;
+    text-align: center;
+  }
+  .Pages {
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+@media (min-width: 769px) {
+  .cardFooter {
+    margin-top: 20px;
+    padding: 30px 100px;
+    background-color: #060640;
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+  .logo img {
+    width: 100px;
+    height: auto;
+    border-radius: 100%;
+  }
+  .LivingRoots {
+    color: #ffffff;
+    width: 40%;
+    height: auto;
+    text-align: center;
+  }
+  .Pages {
+    color: #ffffff;
+  }
+}

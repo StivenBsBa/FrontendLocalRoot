@@ -1,0 +1,46 @@
+.contGeneral {
+  padding-top: 80px;
+  background-color: #ecf9ff;
+}
+.navCategoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5%;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contenido {
+  padding: 10px 5% 0% 5%;
+}
+
+.contenido h2,
+.contenido h4 {
+  text-align: center;
+  margin-top: 20px;
+}
+p,
+li {
+  text-align: justify;
+  padding: 0px 10px 0px 10px;
+}
+
+.nav-link:hover {
+  background-color: rgb(13, 110, 253, 0.2);
+
+  transform: translateY(5px) scale(1.05); /* Eleva y escala la caja */
+  z-index: 2; /* Coloca la caja al frente */
+}
+
+ 
+.orden{
+  display: flex;
+  
+}
+
+.orden div{
+  width: 50%;
+}
