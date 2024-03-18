@@ -6,14 +6,20 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import Constantes from "../../utils/Constantes";
 import Swal from "sweetalert2";
+import TablaUser from "../components/TablaUser"; 
+
 
 const AbminListUser = () => {
   const token = localStorage.getItem("token");
-  const [dataListarUser, setDataListarUser] = useState([]);
+  const [DataListarUser, setDataListarUser] = useState([]);
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+  const [noResultados, setNoResultados] = useState(false);
+  const [UserFiltrados, setUserFiltrados] = useState([]);
+
 
   const listarUsuarios = () => {
-    const endPoint = Constantes.URL_BASE + "/usuarios/listUser";
+    const endPoint = Constantes.URL_BASE + '/usuarios/listUser';
 
     axios
       .get(endPoint, {
@@ -33,52 +39,75 @@ const AbminListUser = () => {
         }
       });
   };
-  const redirigirAbminUser = () => {
-    navigate("/perfil");
-  };
+
   useEffect(() => {
     listarUsuarios();
   }, []);
-  
+
+  const manejarBusqueda = (e) => {
+    const terminoBusqueda = e.target.value.toLowerCase();
+    setSearch(terminoBusqueda);
+
+    // Filtrar los lugares que coincidan con el término de búsqueda
+    const UsersFiltrados = DataListarUser.filter((User) =>
+      User.nombres.toLowerCase().includes(terminoBusqueda)
+    );
+
+    setUserFiltrados(UsersFiltrados);
+
+    // Verificar si no hay resultados
+    if (UsersFiltrados.length === 0) {
+      setNoResultados(true);
+    } else {
+      setNoResultados(false);
+    }
+  };
+
   return (
     <div className="contGeneral">
       <Header />
       <div>
         <h3 className="text-center mb-4">Tabla de Clientes</h3>
 
-        <table className="table table-hover">
-          <thead className="table-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Tipo de Usuario</th>
-              <th scope="col">Nombres</th>
-              <th scope="col">Email</th>
-              <th scope="col">Usuario</th>
-              <th scope="col">Foto</th>
-              <th scope="col">Ver info</th>
-            </tr>
-          </thead>
+        <nav className="navbar navbar-expand-lg bg-body-terciary">
+          <div className="container-fluid">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarScroll">
+              <form className="d-flex" role="search">
+                <input
+                  className="form-control me-2"
+                  type="search"
+                  placeholder="Buscar por nombre de lugar" // Corregido el placeholder
+                  aria-label="Search"
+                  value={search}
+                  onChange={manejarBusqueda}
+                />
+                <button className="btn btn-outline-success" type="submit">
+                  Buscar
+                </button>
+              </form>
 
-          <tbody>
-            {dataListarUser.map((user, index) => (
-              <tr key={user._id}>
-                <th scope="row">{index + 1}</th>
-                <td>{user.TipoUsuario}</td>
-                <td>{user.nombres}</td>
-                <td>{user.email}</td>
-                <td>{user.usuario}</td>
-                <td>
-                  <img
-                    src={user.foto}
-                    alt={user.nombres}
-                    style={{ width: "50px", height: "40px" }}
-                  />
-                </td>
-                <td onClick={redirigirAbminUser}>ver info   </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+            </div>
+          </div>
+        </nav>
+        {noResultados ? (
+          <p className="no-resultados-mensaje">
+            No hay Usaurio que coincidan con la búsqueda.
+          </p>
+        ) : (
+          <TablaUser UserData={search.length ? UserFiltrados : DataListarUser  } />
+         
+        )}
       </div>
       <Footer />
     </div>

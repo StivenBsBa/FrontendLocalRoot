@@ -30,8 +30,7 @@ function Login() {
       usuario: usuario,
       password: password,
     };
-    console.log("usuario:", usuario);
-    console.log("Password:", password);
+   
     await axios
       .post(endPoin, data)
       .then((resp) => {
@@ -41,8 +40,7 @@ function Login() {
         localStorage.setItem("username", usuario);
         navigate("/Inicio");
         Swal.fire(
-          "Informacion!",
-          localStorage.getItem("usuario") + " Bienvenido"
+          "Informacion!", usuario + " Bienvenido"
         );
       })
       .catch((error) => {

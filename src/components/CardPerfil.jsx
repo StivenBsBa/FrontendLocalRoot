@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/CardPerfil.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const CardPerfil = ({ nombreCliente, cerrarSesion }) => {
     const navigate = useNavigate();
@@ -10,13 +10,8 @@ const CardPerfil = ({ nombreCliente, cerrarSesion }) => {
         cerrarSesion();
         navigate("/Login"); // Redirige al usuario a la página de inicio de sesión después de cerrar sesión
     };
-    const redirigirperfil = () => {
-        
-        navigate("/Perfil"); // Redirige al usuario a la página de inicio de sesión después de cerrar sesión
-    };
-    const usuario = localStorage.getItem("username");
-
-
+    
+    const username = localStorage.getItem("username");
     return (
 
         <div className="cardperfil">
@@ -27,8 +22,8 @@ const CardPerfil = ({ nombreCliente, cerrarSesion }) => {
             </div>
             <div className="namePerfil">
 
-                <p>{usuario}</p>
-                <span onClick={redirigirperfil}>Perfil</span>
+                <p>{username}</p>
+                <span ><Link to={`/Perfil/${username}`}>Perfil</Link></span>
             </div>
             <div className="CardCerrar">
                 <p  onClick={handleCerrarSesion}>Cerrar sesión </p>

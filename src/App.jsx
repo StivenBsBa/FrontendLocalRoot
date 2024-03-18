@@ -28,7 +28,7 @@ function App() {
       <Route path='/SobreMedellin' element={<SobreMedellin />}/>
       <Route path='/PreguntasFrecuentes' element={<PreguntasFrecuentes />}/>
       <Route path='/Terminos' element={<Terminos />}/>
-      <Route path='/Perfil' element={<Perfil />}/>
+      <Route path='/Perfil/:username' element={<Perfil />}/>
       <Route path='/evento/:id' element={<InfoEvento />} />
       <Route path='/lugar/:id' element={<InfoLugares />} />
       <Route path='/AbminListUser' element={<AbminListUser />} />

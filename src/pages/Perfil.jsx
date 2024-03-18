@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "../styles/perfil.css";
 import Header from "../components/Header";
@@ -24,18 +24,19 @@ const Perfil = () => {
   const [DataLugar, setDataLugar] = useState([]);
   const [DataLugarLike, setDataLugarLike] = useState([]);
   const [Datauser, setDatauser] = useState([]);
-  const Usuario = localStorage.getItem("username");
+  const { username } = useParams();
 
   const handleOneUser = async () => {
-    const endPoin = `${Constantes.URL_BASE}/usuarios/findusername/${Usuario}`;
-    
+
+    const endPoin = `${Constantes.URL_BASE}/usuarios/findusername/${username}`;
+
     await axios
       .get(endPoin, {
         headers: { Authorization: `bearer ${token}` },
       })
       .then((resp) => {
         setDatauser(resp.data.result);
-        console.log(Datauser);
+       
       })
       .catch((err) => {
         console.log(err);
@@ -49,8 +50,9 @@ const Perfil = () => {
       });
   };
 
+
   async function handlEventolike() {
-    const endPoin = `${Constantes.URL_BASE}/eventos/listEventosLike/${Usuario}`;
+    const endPoin = `${Constantes.URL_BASE}/eventos/listEventosLike/${username}`;
     await axios
       .get(endPoin, {
         headers: { Authorization: `bearer ${token}` },
@@ -71,7 +73,7 @@ const Perfil = () => {
   }
   //consumo para ver los eventos creados por el usuario
   async function handleEvento() {
-    const endPoin = `${Constantes.URL_BASE}/eventos/listEventoscreados/${Usuario}`;
+    const endPoin = `${Constantes.URL_BASE}/eventos/listEventoscreados/${username}`;
 
     await axios
       .get(endPoin, {
@@ -94,7 +96,7 @@ const Perfil = () => {
   //consumo para ver los lugares creados por el usuario y favoritos
 
   async function handleLugar() {
-    const endPoin = `${Constantes.URL_BASE}/lugares/listlugarescreados/${Usuario}`;
+    const endPoin = `${Constantes.URL_BASE}/lugares/listlugarescreados/${username}`;
     await axios
       .get(endPoin, {
         headers: { Authorization: `bearer ${token}` },
@@ -116,7 +118,7 @@ const Perfil = () => {
   }
 
   async function handleLugarlikelistar() {
-    const endPoin = `${Constantes.URL_BASE}/lugares/listlugaresLike/${Usuario}`;
+    const endPoin = `${Constantes.URL_BASE}/lugares/listlugaresLike/${username}`;
     await axios
       .get(endPoin, {
         headers: { Authorization: `bearer ${token}` },
@@ -158,7 +160,7 @@ const Perfil = () => {
           <div className="descrip-pefil">
             <div className="nombre">
               <h6 className="nombre-perfil"> Nombre: {Datauser.nombres}</h6>
-              <h6 className="usuario-perfil">Usuario: {Usuario}</h6>
+              <h6 className="usuario-perfil">Usuario: {username}</h6>
             </div>
             <h6 className="usuario-perfil">Email: {Datauser.email}</h6>
             <div className="nombre">
