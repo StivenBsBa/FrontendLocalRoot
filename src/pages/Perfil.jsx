@@ -25,9 +25,8 @@ const Perfil = () => {
   const [DataLugarLike, setDataLugarLike] = useState([]);
   const [Datauser, setDatauser] = useState([]);
   const { username } = useParams();
-
+  const usuario = localStorage.getItem("username");
   const handleOneUser = async () => {
-
     const endPoin = `${Constantes.URL_BASE}/usuarios/findusername/${username}`;
 
     await axios
@@ -36,7 +35,6 @@ const Perfil = () => {
       })
       .then((resp) => {
         setDatauser(resp.data.result);
-       
       })
       .catch((err) => {
         console.log(err);
@@ -49,7 +47,6 @@ const Perfil = () => {
         }
       });
   };
-
 
   async function handlEventolike() {
     const endPoin = `${Constantes.URL_BASE}/eventos/listEventosLike/${username}`;
@@ -116,7 +113,6 @@ const Perfil = () => {
         }
       });
   }
-
   async function handleLugarlikelistar() {
     const endPoin = `${Constantes.URL_BASE}/lugares/listlugaresLike/${username}`;
     await axios
@@ -137,8 +133,8 @@ const Perfil = () => {
         }
       });
   }
-  const redirigirAbminUser = () => {
-    navigate("/AbminListUser");
+  const redirigirAdminUser = () => {
+    navigate("/AdminListUser");
   };
   useEffect(() => {
     handleEvento();
@@ -155,17 +151,21 @@ const Perfil = () => {
         <div className="encabezado-perfil">
           <div>
             <img src={Datauser.foto} alt="Foto de perfil" />
-            <EditPerfil />
+            <div>
+              {usuario === Datauser.usuario && <EditPerfil />}
+            </div>
+            
           </div>
           <div className="descrip-pefil">
             <div className="nombre">
               <h6 className="nombre-perfil"> Nombre: {Datauser.nombres}</h6>
-              <h6 className="usuario-perfil">Usuario: {username}</h6>
+              <h6 className="usuario-perfil">Usuario: {Datauser.usuario}</h6>
             </div>
             <h6 className="usuario-perfil">Email: {Datauser.email}</h6>
+            <h6 className="usuario-perfil">Tipo de usuario: {Datauser.TipoUsuario}</h6>
+
             <div className="nombre">
-              {Datauser.TipoUsuario &&
-              Datauser.TipoUsuario.includes("administrador") ? (
+              {Datauser.TipoUsuario ===("Administrador") ? (
                 <h6 className="usuario-perfil">
                   Eventos creados: {DataEvento.length}
                 </h6>
@@ -176,8 +176,7 @@ const Perfil = () => {
               </h6>
             </div>
             <div className="nombre">
-              {Datauser.TipoUsuario &&
-              Datauser.TipoUsuario.includes("administrador") ? (
+              {Datauser.TipoUsuario ===("Administrador") ? (
                 <h6 className="usuario-perfil">
                   Lugares creados: {DataLugar.length}
                 </h6>
@@ -189,16 +188,14 @@ const Perfil = () => {
           </div>
         </div>
         <div>
-          {Datauser.TipoUsuario &&
-          Datauser.TipoUsuario.includes("SuperAdministrador") ? (
+          {Datauser.TipoUsuario ===("SuperAdministrador") ? (
             <div className="crearEvento">
-              <button onClick={redirigirAbminUser}>Abministrar usuario</button>
+              <button onClick={redirigirAdminUser}>Administrar usuario</button>
             </div>
           ) : null}
         </div>
         <div>
-          {Datauser.TipoUsuario &&
-          Datauser.TipoUsuario.includes("administrador") ? (
+          {Datauser.TipoUsuario ===("Administrador") && Datauser.usuario===usuario ? (
             <div className="crearEvento">
               <CrearEditarEvento />
               <CrearEditarLugares />
@@ -212,8 +209,7 @@ const Perfil = () => {
             className="mb-3"
             fill
           >
-            {Datauser.TipoUsuario &&
-            Datauser.TipoUsuario.includes("administrador") ? (
+            {Datauser.TipoUsuario===("Administrador") ? (
               <Tab eventKey="evento creado" title="Eventos creados">
                 {DataEvento.length > 0 ? (
                   <div>
@@ -241,8 +237,7 @@ const Perfil = () => {
               )}
             </Tab>
 
-            {Datauser.TipoUsuario &&
-            Datauser.TipoUsuario.includes("administrador") ? (
+            {Datauser.TipoUsuario===("Administrador") ? (
               <Tab eventKey="lugar creado" title="Lugares Creados">
                 {DataLugar.length > 0 ? (
                   <div>

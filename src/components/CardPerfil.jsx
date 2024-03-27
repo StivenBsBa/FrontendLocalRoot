@@ -10,7 +10,10 @@ const CardPerfil = ({ nombreCliente, cerrarSesion }) => {
         cerrarSesion();
         navigate("/Login"); // Redirige al usuario a la página de inicio de sesión después de cerrar sesión
     };
-    
+    const handlePerfil = () => {
+        navigate(`/Perfil/${username}`); 
+        window.location.reload()
+    };
     const username = localStorage.getItem("username");
     return (
 
@@ -23,7 +26,7 @@ const CardPerfil = ({ nombreCliente, cerrarSesion }) => {
             <div className="namePerfil">
 
                 <p>{username}</p>
-                <span ><Link to={`/Perfil/${username}`}>Perfil</Link></span>
+                <span onClick={handlePerfil}>Perfil</span>
             </div>
             <div className="CardCerrar">
                 <p  onClick={handleCerrarSesion}>Cerrar sesión </p>

@@ -91,6 +91,7 @@ function editPerfil() {
         </svg>
         
       </button>
+      
       <Modal show={showPasswordModal} onHide={handleCloseFotoModal}>
         <Modal.Header closeButton>
           <Modal.Title>cambiar foto de perfil</Modal.Title>

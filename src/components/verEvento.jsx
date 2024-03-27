@@ -27,7 +27,7 @@ const VerEventos = ({ eventos }) => {
                 <p>{DataEvento.descripcion}</p>
               </div>
               <h4>Precio: {DataEvento.costoEntrada}</h4>
-              {/* Enlace al detalle del evento usando el 'id' del evento */}
+              
               <Link to={`/evento/${DataEvento._id}`}>Ver Detalles</Link>
             </div>
             <img src={DataEvento.imageEvento} alt={DataEvento.nombre} />

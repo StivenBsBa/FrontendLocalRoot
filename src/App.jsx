@@ -11,7 +11,7 @@ import Terminos from './pages/Terminos'
 import Perfil from './pages/Perfil'
 import InfoEvento from "./pages/InfoEvento"
 import InfoLugares from "./pages/InfoLugares"
-import AbminListUser from "./pages/ListaUsuarios"
+import AdminListUser from "./pages/ListaUsuarios"
 
 
 
@@ -31,7 +31,7 @@ function App() {
       <Route path='/Perfil/:username' element={<Perfil />}/>
       <Route path='/evento/:id' element={<InfoEvento />} />
       <Route path='/lugar/:id' element={<InfoLugares />} />
-      <Route path='/AbminListUser' element={<AbminListUser />} />
+      <Route path='/AdminListUser' element={<AdminListUser />} />
 
       
     </Routes>
