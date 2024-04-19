@@ -34,7 +34,6 @@ function Login() {
     await axios
       .post(endPoin, data)
       .then((resp) => {
-        console.log(resp);
         localStorage.setItem("token", resp.data.jwt);
         localStorage.setItem("user", resp.data.user);
         localStorage.setItem("username", usuario);

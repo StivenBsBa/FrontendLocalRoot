@@ -110,7 +110,6 @@ function CrearEditarLugares() {
         axios
           .put(endPoint, datosLugar)
           .then((resp) => {
-            console.log(resp);
             cerrarModalLugar();
             Swal.fire("Información", "Lugar actualizado", "success");
             window.location.reload();
@@ -131,7 +130,6 @@ function CrearEditarLugares() {
         axios
           .post(endPoint, datosLugar)
           .then((resp) => {
-            console.log(resp);
             cerrarModalLugar();
             Swal.fire("Información", "Lugar creado", "success");
             window.location.reload();

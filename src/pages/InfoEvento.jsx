@@ -26,7 +26,6 @@ const InfoEvento = () => {
       })
       .then((resp) => {
         setDataEvento(resp.data.result);
-        console.log(DataEvento);
       })
       .catch((err) => {
         console.log(err);
@@ -87,7 +86,6 @@ const InfoEvento = () => {
     axios
       .post(endPoint, datosEventos)
       .then((resp) => {
-        console.log(resp);
         Swal.fire("Información", "Lugar guardado en favorito", "success");
       })
       .catch((error) => {

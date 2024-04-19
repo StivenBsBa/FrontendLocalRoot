@@ -100,7 +100,6 @@ const Perfil = () => {
       })
       .then((resp) => {
         setDataLugar(resp.data.result);
-        console.log(DataLugar);
       })
       .catch((err) => {
         console.log(err);

@@ -34,7 +34,6 @@ function RestablecerPassword() {
 
       axios.put(endPoint, Data)
         .then((resp) => {
-          console.log(resp.data);
           Swal.fire('Información', 'Contraseña actualizada con éxito', 'success');
           window.location.reload();
 

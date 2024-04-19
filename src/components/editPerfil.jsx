@@ -35,7 +35,6 @@ function editPerfil() {
       .get(endPoint)
       .then((resp) => {
         const UsuarioData = resp.data.result;
-        console.log(UsuarioData)
         setnombres(UsuarioData.nombres);
         setemail(UsuarioData.email);
         setfoto(UsuarioData.foto);
@@ -67,7 +66,6 @@ function editPerfil() {
 
       axios.put(endPoint, Data)
         .then((resp) => {
-          console.log(resp.data);
           Swal.fire('Información', 'foto actualizada con éxito', 'success');
           window.location.reload();
 

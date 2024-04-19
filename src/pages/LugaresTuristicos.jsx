@@ -21,7 +21,6 @@ const LugaresTuristicos = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((resp) => {
-        console.log(resp);
         setDataLugares(resp.data.result);
       })
       .catch((err) => {
